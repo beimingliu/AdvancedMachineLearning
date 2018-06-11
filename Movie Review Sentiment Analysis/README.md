@@ -1,29 +1,5 @@
 
-# HW5: Word Embeddings
-
-## 1. Embeddings models: Glove
-
-$$ \sum ^{m}_{i=1}\sum ^{m}_{j=1}f\left( X_{ij}\right) \left( \theta _{i}e_{i}+b'j-\log(X_{ij})\right) ^{2} $$
-
-### 1.1 Prameters
-
-$$ \theta_{i},  e_{j},  b_{i},  b'_{j}$$
-
-### 1.2 Number of Parameters
-
-$$ 2 \times D\times M + 2 \times M = 2M(D+1)$$
-
-## 2 Embeeding models: Skip-gram or word2vec
-
-### 2.1 Parameters:
-
-$$ \theta_{j}, e_{c} $$
-
-### 2.2 We minimize log-function:
-
-$$ \ell = -\sum_{i=1}^{M} y_{i} log( \hat{y_{i}} )$$
-
-where $y_{i}$ is a $1 \times M$ vector whose cell euqals to 1 for $i^{th}$ position and 0 otherwise.
+# Word Embeddings
 
 ## Sentiment analysis with word embedings
 classify movie reviews into positive and negative. The large movie view dataset (http://ai.stanford.edu/~amaas/data/sentiment/) contains a collection of 50,000 reviews from
@@ -34,8 +10,8 @@ of predicting the polarity (positive or negative) of a given text.
 
 
 ```python
-import numpy as np 
-import pandas as pd 
+import numpy as np
+import pandas as pd
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -55,11 +31,11 @@ import pickle
     HTTP request sent, awaiting response... 200 OK
     Length: 84125825 (80M) [application/x-gzip]
     Saving to: 'aclImdb_v1.tar.gz'
-    
+
     aclImdb_v1.tar.gz   100%[===================>]  80.23M  15.3MB/s    in 5.2s    
-    
+
     2018-02-22 22:04:55 (15.4 MB/s) - 'aclImdb_v1.tar.gz' saved [84125825/84125825]
-    
+
 
 
 **unzip the file in the local directory**
@@ -78,11 +54,11 @@ names = ['neg','pos']
 
 
 ```python
-%ls aclImdb/train
+!ls aclImdb/train
 ```
 
-    labeledBow.feat  [34mpos[m[m/             unsupBow.feat    urls_pos.txt
-    [34mneg[m[m/             [34munsup[m[m/           urls_neg.txt     urls_unsup.txt
+    labeledBow.feat  pos/ unsupBow.feat urls_pos.txt
+    neg/    unsup/      urls_neg.txt  urls_unsup.txt
 
 
 
@@ -144,7 +120,7 @@ re_br = re.compile(r'<\s*br\s*/?>', re.IGNORECASE)
 def sub_br(x): return re_br.sub("\n", x)
 
 my_tok = spacy.load('en')
-def spacy_tok(x): 
+def spacy_tok(x):
     #x = x
     return [tok.text.lower() for tok in my_tok.tokenizer(sub_br(x))]
 ```
@@ -269,7 +245,7 @@ def sentence_features_v2(s, embeddings=embeddings, emb_size=300):
 
 ```python
 %%time
-# create sentence vectors 
+# create sentence vectors
 x_train = np.array([sentence_features_v2(i) for i in trn])
 ```
 
@@ -312,7 +288,7 @@ bst = xgb.train(xgb_pars, d_train, 2000, watchlist, early_stopping_rounds=100, v
 
     [0]	train-logloss:0.687224	valid-logloss:0.687575
     Multiple eval metrics have been passed: 'valid-logloss' will be used for early stopping.
-    
+
     Will train until valid-logloss hasn't improved in 100 rounds.
     [100]	train-logloss:0.465641	valid-logloss:0.49207
     [200]	train-logloss:0.399465	valid-logloss:0.441601
@@ -332,7 +308,7 @@ bst = xgb.train(xgb_pars, d_train, 2000, watchlist, early_stopping_rounds=100, v
     [1600]	train-logloss:0.227371	valid-logloss:0.368874
     Stopping. Best iteration:
     [1524]	train-logloss:0.231591	valid-logloss:0.368852
-    
+
     CPU times: user 14min 21s, sys: 8.57 s, total: 14min 30s
     Wall time: 1min 55s
 
@@ -397,11 +373,11 @@ x_val_ = freq.transform(val)
 d_train = xgb.DMatrix(x_train_, label=trn_y)
 d_val = xgb.DMatrix(x_val_, label=val_y)
 
-xgb_pars = {"min_child_weight": 50, 
-            "eta": 0.05, 
+xgb_pars = {"min_child_weight": 50,
+            "eta": 0.05,
             "max_depth": 8,
-            #"subsample": 0.5, 
-            "silent" : 1, 
+            #"subsample": 0.5,
+            "silent" : 1,
             #"colsample_bytree": 0.4,
             "nthread": 8,
             "eval_metric": "logloss", "objective": "binary:logistic"}
@@ -413,7 +389,7 @@ bst = xgb.train(xgb_pars, d_train, 2000, watchlist, early_stopping_rounds=100, v
 
     [0]	train-logloss:0.681089	valid-logloss:0.681198
     Multiple eval metrics have been passed: 'valid-logloss' will be used for early stopping.
-    
+
     Will train until valid-logloss hasn't improved in 100 rounds.
     [100]	train-logloss:0.411805	valid-logloss:0.432926
     [200]	train-logloss:0.345302	valid-logloss:0.381341
@@ -433,7 +409,7 @@ bst = xgb.train(xgb_pars, d_train, 2000, watchlist, early_stopping_rounds=100, v
     [1600]	train-logloss:0.167726	valid-logloss:0.307141
     Stopping. Best iteration:
     [1568]	train-logloss:0.169533	valid-logloss:0.306924
-    
+
     CPU times: user 57min 33s, sys: 3min 43s, total: 1h 1min 16s
     Wall time: 8min 20s
 

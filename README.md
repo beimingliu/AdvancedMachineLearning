@@ -18,11 +18,11 @@ Use Adaboost and XGBoost methods to predict if a email is a spam with 97% accura
 
 
 ## [Teach Computers to recognize Digits](NN%20MNIST%20dataset)
-Pytorch: implement simple 2-Layer and 3-Layer neural network using [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to predict hand written digit with an accuracy rate = 98.29%
+Pytorch: implement simple 2-Layer and 3-Layer neural network using [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to predict hand written digit with an accuracy rate of 98.29%
 
 
 ## [So you watched a movie: Yay or Nay? ](Movie%20Review%20Sentiment%20Analysis)
-Use [Glove embeddings](https://nlp.stanford.edu/projects/glove/) on [movie review dataset](http://ai.stanford.edu/~amaas/data/sentiment/) of 50,000 reviews from IMDB. Predict if a review is positive or negative given the content: use XGBoost to achieve a 86.7% accuracy rate.
+Use [Glove embeddings](https://nlp.stanford.edu/projects/glove/) on [movie review dataset](http://ai.stanford.edu/~amaas/data/sentiment/) of 50,000 reviews from IMDB. Predict if a review is positive or negative given the content: use XGBoost to achieve an 86.7% accuracy rate.
 
 ## [How much is my House Worth?](House%20Price)
 Use Linear Regression to predict the house prices in [Ames, Iowa](https://www.kaggle.com/c/house-prices-advanced-regression-techniques). Compare regression models of OLS, Ridge, Lasso and Elastic Net techniques and generate a business report.
@@ -30,7 +30,7 @@ Use Linear Regression to predict the house prices in [Ames, Iowa](https://www.ka
 ## [BBC Article Recommendations](BBC%20Article%20Recommendations)
 Replicate the recommendation system on blog-based website: provide 5 articles based on what the user is reading now using word2vec on [data](w).
 
-## [Let's make your own Netflix recommendation engine!](Recommender%20System)
+## [Build your own Netflix recommendation engine!](Recommender%20System)
 Build a movie rating recommendation system from scratch using collaborative filtering with matrix factorization.
 
 ## [Twitter Sentiment Analysis!](Twitter%20Sentiment)
