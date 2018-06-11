@@ -1,0 +1,10 @@
+============================= test session starts ==============================
+platform darwin -- Python 2.7.12, pytest-2.9.2, py-1.4.31, pluggy-0.3.1 -- /Users/parrt/anaconda2/bin/python
+cachedir: .cache
+rootdir: /Users/parrt/grading/msan692/F17/recommender-benliu91, inifile: 
+collecting ... collected 2 items
+
+test_server.py::test_links PASSED
+test_server.py::test_sample_articles PASSED
+
+=========================== 2 passed in 1.49 seconds ===========================
