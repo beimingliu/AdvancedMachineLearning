@@ -1,12 +1,13 @@
 # Advanced Machine Learning Related Projects
 
 This is a collection of ML projects that I did, topics include:
-+ Regression: Linear Regression, Lasso, Ridge
-+ Time Series: ARIMA, SARIMA (Box-Jenkins Approach), Exponential Smoothing (Holt-Winters Approach), VAR, VARX (Vector Autoregression Approach) etc
-+ NLP: embeddings, Tf-idf etc
-+ XGBoost, Random Forest implementation
-+ Neural Network, Image classification
-+ Recommender System: collaborative filtering and matrix factorization
++ <b>Regression:</b> Linear Regression, Lasso, Ridge
++ <b>Time Series:</b> ARIMA, SARIMA (Box-Jenkins Approach), Exponential Smoothing (Holt-Winters Approach), VAR, VARX (Vector Autoregression Approach) etc
++ <b>Recommender System:</b> collaborative filtering and matrix factorization
++ <b>NLP:</b> embeddings, Tf-idf etc
++ <b>XGBoost, Random Forest</b> implementation
++ <b>Neural Network:</b> Image classification
+
 
 ## [Here's an Ad, are you gonna click it?](CTR%20Prediction)
 Use Random Forest with feature engineering to predict Click-Through Rate (CTR) with [Avazu data](https://www.kaggle.com/c/avazu-ctr-prediction). Final result with Log Loss ≈ 0.4.
@@ -36,5 +37,5 @@ Build a movie rating recommendation system from scratch using collaborative filt
 I know, I know, I know. You've seen this project a million times, as a ML student, I just had to do it like everyone else :)
 
 
-<sup><br>Part of the code is modified from Prof. [Yannet Interian](https://github.com/yanneta)'s USF Advanced ML class.<br></sup>
-<sup>Part of the code is modified from Prof. [Terence Parr](https://github.com/parrt)'s USF data acquisition class.</sup>.
+<sup><br>Part of the code is modified from Prof. [Yannet Interian's](https://github.com/yanneta) USF Advanced ML class.<br></sup>
+<sup>Part of the code is modified from Prof. [Terence Parr's](https://github.com/parrt) USF data acquisition class.</sup>.
